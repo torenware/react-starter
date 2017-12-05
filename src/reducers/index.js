@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { TOGGLE_LOGIN } from '../actions';
 
-const reduceLogin = (state = false, action) => {
+const defaultState = { authed: false };
+const reduceLogin = (state = defaultState, action) => {
   switch (action.type) {
     case TOGGLE_LOGIN:
-      return !state;
+      return {authed: !state.authed};
     default:
       return state;
   }

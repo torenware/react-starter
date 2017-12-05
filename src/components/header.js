@@ -7,7 +7,7 @@ import {loginAction} from '../actions';
 class Header extends Component {
 
  authButton() {
-   const buttonText = this.props.loggedIn ? "Log Out" : "Sign In";
+   const buttonText = this.props.loggedIn && this.props.loggedIn.authed ? "Log Out" : "Sign In";
    return <div><button onClick={this.props.loginAction}>{buttonText}</button></div>;
  }
  render() {
