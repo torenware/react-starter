@@ -8,7 +8,14 @@ class Header extends Component {
 
  authButton() {
    const buttonText = this.props.loggedIn && this.props.loggedIn.authed ? "Log Out" : "Sign In";
-   return <div><button onClick={this.props.loginAction}>{buttonText}</button></div>;
+   return (<div>
+             <button
+                onClick={this.props.loginAction}
+                className='btn nav-btn btn-link navbar-inverse'>
+                  {buttonText}
+             </button>
+          </div>
+        );
  }
  render() {
     const msgbox = this.props.msg && !this.props.loggedIn ?
@@ -17,11 +24,11 @@ class Header extends Component {
     return (
       <header className="App-header">
         <h1 className="App-title">Welcome to React</h1>
-        <nav >
-          <ul className='nav nav-tab'>
-            <li ><Link to='/'>Home</Link></li>
-            <li ><Link to='/resources'>Resources</Link></li>
-            <li >{this.authButton()}</li>
+        <nav className='nav navbar-inverse'>
+          <ul className='nav nav-pills'>
+            <li role='presentation' ><Link role='button' to='/'>Home</Link></li>
+            <li role='presentation' ><Link role='button' to='/resources' >Resources</Link></li>
+            <li  role='presentation'>{this.authButton()}</li>
           </ul>
         </nav>
         {msgbox}
